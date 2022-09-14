@@ -3,16 +3,18 @@ import requests
 import random
 import os
 import wget
+import subprocess
 # In[]
 def connection():
     try:
         response=requests.get("https://picsum.photos/5000/3700")
-        response.raise_for_status()
         return response.url
     except requests.exceptions.HTTPError:
-        print('please enter correct url')
+        subprocess.Popen(['notify-send', "connection issue"])
+    except requests.exceptions.InvalidSchema:
+        subprocess.Popen(['notify-send', "invalid url"])
 
-
+# In[]
 
 def download_image(a):
     filesra=os.listdir(os.getcwd())
@@ -24,7 +26,7 @@ def download_image(a):
     except requests.exceptions.HTTPError:
         print(('some connection issue occurred'))
 
-
+# In[]
 def setwallp():
     path='/home/chakradhar/Documents/python'
     chak="gsettings set org.gnome.desktop.background picture-uri "
@@ -35,8 +37,6 @@ def setwallp():
             kra=f"'file:///home/chakradhar/Documents/python/{pic}'"
             theimage=pic
     os.system(chak+kra)
-    #os.remove(theimage)
-
 # In[]
 a=connection()
 
@@ -45,3 +45,4 @@ download_image(a)
 
 # In[]
 setwallp()
+# %%
