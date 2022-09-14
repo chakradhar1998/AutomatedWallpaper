@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # In[299]:
 import requests
 import random
