@@ -28,12 +28,12 @@ def download_image(a):
 
 # In[]
 def setwallp():
-    path='/home/chakradhar/Documents/python'
+    path=os.getcwd()
     chak="gsettings set org.gnome.desktop.background picture-uri "
     filesra=os.listdir(path)
     for pic in filesra:
         if pic.endswith('.jpg'):
-            kra=f"'file:///home/chakradhar/Documents/python/{pic}'"
+            kra=f"'file://{path}/{pic}'"
             theimage=pic
     os.system(chak+kra)
 # In[]
