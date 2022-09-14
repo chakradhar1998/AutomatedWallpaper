@@ -31,7 +31,6 @@ def setwallp():
     path='/home/chakradhar/Documents/python'
     chak="gsettings set org.gnome.desktop.background picture-uri "
     filesra=os.listdir(path)
-    kra_list=[]
     for pic in filesra:
         if pic.endswith('.jpg'):
             kra=f"'file:///home/chakradhar/Documents/python/{pic}'"
